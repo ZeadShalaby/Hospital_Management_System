@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    
+{{#if msg}}
+ <div class="alert alert-success" role="alert">
+  {{msg}}
+</div> 
+{{/if}} 
+
+{{#if msgde}}
+ <div class="alert alert-danger" role="alert">
+  {{msgde}}
+</div> 
+{{/if}} 
+    <ul>
+        {{#each hospitals}}
+    <li>
+        
+
+    <a href='/hospital/{{_id}}'>
+     {{ name }} /-/ 
+     {{address}}
+     {{photo}}
+      </a>
+      <div>
+        <a href="/hospital/{{_id}}/edit" class="btn btn-success" style="margin-left: 400px;" >Edit</a>
+
+        <form onsubmit="return confirm('Are you sure you want to delete this Department')"
+        action="/hospital/{{_id}}?_method=DELETE" method="post" style="margin-left: 500px;margin-top: -38px;" >
+        <button type="submit" class="btn btn-danger"> delete</button>
+        </form>
+
+          </div>
+      </li>
+      <br>
+      {{/each}}
+      </ul>
+            <br>
+            <a href="/hospital/create" class="btn btn-dark">Create Hospital</a>
+            <a href="/doctors" class="btn btn-dark">doctores</a>
+            <a href="/specialist" class="btn btn-dark">Specialist</a>
+            <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+    
+</ul>
+</body>
+</html>

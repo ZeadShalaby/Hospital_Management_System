@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Doctors</title>
+</head>
+<body>
+    <h1>Doctors</h1>
+         <form action="/doctors/{{doctor._id}}?_method=PUT" method="POST">
+        <div>
+            <label for="">Name</label>
+            <input type="text" class="form-control" name="name" value="{{doctor.name}}">
+        </div>
+
+        <div>
+            <label for="">phone</label>
+            <input type="number" class="form-control" name="phone" value="{{doctor.phone}}">
+        </div>
+
+        <div>
+            <label for="">Photo</label>
+            <input type="file" class="form-control" name="photo" value="{{doctor.photo}}">
+        </div>
+
+        <div>
+            <label for="">Specialist</label>
+    <select name="specialist_id" id="" class="form-select">
+        <option value="{{doctor.specialist_id._id}}">{{doctor.specialist_id.name}}</option>
+         {{#each specialits}}
+        <option value="{{_id}}">{{name}}</option>
+         {{/each}}
+    </select>
+        </div> 
+
+      <div>
+            <label for="">Hospital</label>
+    <select name="hospital_id" id="" class="form-select">
+        <option value="{{doctor.hospital_id._id}}">{{doctor.hospital_id.name}}</option>
+         {{#each hospital}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+        </div> 
+       <div>
+        <button class="btn btn-success" type="submit">Save</button>
+       </div> 
+
+    </form>
+<br>
+            <a href="/specialist" class="btn btn-dark">Specialist</a>
+            <a href="/hospital" class="btn btn-dark">Hospital</a>
+            <a href="/doctors/create" class="btn btn-dark">Create Doctors</a>
+            <a href="/doctors" class="btn btn-dark"> Doctors</a>
+            <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+
+</body>
+</html>

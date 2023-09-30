@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Report</title>
+</head>
+<body>
+    <h1>Doctors Show Report</h1>
+{{#if status}}
+<div class="alert alert-success" role="alert">
+{{specialists.name}} Update Successfully .
+</div> 
+{{/if}} 
+    <ul>
+    <li>
+    Patient :  
+    {{ report.patient_id.name }}
+    </li>
+    <br>
+    <li>
+    Specialists : 
+    {{ report.specialist_id.name }}
+    </li>
+    <br>
+     <li>
+    hospital : 
+    {{ report.hospital_id.name }}
+    </li>
+    <br>
+     <li>
+    nuress : 
+    {{ report.nuress_id.name }}
+    </li>
+    <br>
+    <li>
+    doctor : 
+    {{ report.doctor_id.name }}
+    </li>
+    <br>
+    <li>
+    descriptionn : 
+    {{ report.description }}
+    </li>
+</ul>
+
+      <a href="/specialist" class="btn btn-dark">Specialist</a>
+      <a href="/doctors" class="btn btn-dark">Doctors</a>
+      <a href="/hoospital" class="btn btn-dark">Hospital</a>
+      <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+</body>
+</html>
