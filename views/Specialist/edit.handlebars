@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <form action="/specialist/{{specialist._id}}?_method=PUT" method="post" class="my-5">
+        <div class="mb-5 text-capitalize">
+            <label for="deptName" class="form-label">Specialist Name</label>
+            <input type="text" class="form-control" id="deptName" required name="name" value="{{specialist.name}}">
+        </div>
+        <div class="mb-5">
+            <label for="deptCode" class="form-label"> Code</label>
+            <input type="text" class="form-control" id="deptCode" required maxlength="6" name="code"
+                value="{{specialist.code}}">
+        </div>
+        <div>
+        <label for="">Hospital</label>
+          <select name="hospital_id" id="" class="form-select">
+            <option value="{{specialist.hospital_id._id}}">{{specialist.hospital_id.name}}</option>
+            {{#each hospital}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        </div> 
+        <div>
+            <label for="">Photo</label>
+            <img src="../public/image/hospital/{{specialist.photo}}.png" alt="{{specialist.name}}">
+            <input type="file" class="form-control" name="photo" value= "{{specialist.photo}}">
+        </div>
+        <button type="submit" class="btn btn-success">Edit</button>
+    </form>
+
+
+
+    <br>
+    <a href="/specialist/" class="btn btn-dark">specialist</a>
+
+    <a href="/doctors/" class="btn btn-dark">doctors</a>
+    
+    <a href="/hospital/" class="btn btn-dark">Hospital</a>    
+   
+    <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+
+</body>
+</html>

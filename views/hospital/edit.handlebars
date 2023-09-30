@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hospital</title>
+</head>
+<body>     
+    <form action="/hospital/{{hospital._id}}?_method=PUT" method="post" class="my-5">
+        <div class="mb-5 text-capitalize">
+            <label for="deptName" class="form-label">Hospital Name</label>
+            <input type="text" class="form-control" id="deptName" required name="name" value="{{hospital.name}}">
+        </div>
+        <div class="mb-5">
+            <label for="deptCode" class="form-label">Address</label>
+            <input type="text" class="form-control" id="deptCode" required maxlength="15" name="address"
+                value="{{hospital.address}}">
+        </div>
+        <div>
+            <label for="">Photo</label>
+            <img src="../public/image/hospital/{{hospital.photo}}.png" alt="{{hospital.name}}">
+            <input type="file" class="form-control" name="photo" value= "{{hospital.photo}}">
+        </div>
+        <button type="submit" class="btn btn-success">Edit</button>
+    </form>
+
+
+
+
+
+
+<br>
+    <a href="/specialist/" class="btn btn-dark">specialist</a>
+
+    <a href="/doctors/" class="btn btn-dark">doctors</a>
+    
+    <a href="/hospital/" class="btn btn-dark">Hospital</a>
+            
+    <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+
+
+</body>
+</html>

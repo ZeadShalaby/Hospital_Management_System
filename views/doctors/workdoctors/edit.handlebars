@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Doctors</title>
+</head>
+<body>
+    <h1>Doctors Edit Report</h1>
+         <form action="/workdoctors/{{reports._id}}?_method=PUT" method="POST">
+    <div>
+            <label for="">Description</label>
+            <input type="text" class="form-control" name="description" value="{{reports.description}}">
+        </div>
+
+        <div>
+            <label for="">Patient</label>
+            
+    <select name="patient_id" id="" class="form-select">
+        <option value="{{reports.patient_id._id}}">{{reports.patient_id.name}}</option>
+         {{#each patie}}
+        
+        <option value="{{_id}}">{{name}}</option>
+        
+         {{/each}}
+    </select>
+        </div> 
+
+        <div>
+            <label for="">Specialist</label>
+    <select name="specialist_id" id="" class="form-select">
+        <option value="{{reports.specialist_id._id}}">{{reports.specialist_id.name}}</option>
+         {{#each specialits}}
+        <option value="{{_id}}">{{name}}</option>
+         {{/each}}
+    </select>
+        </div> 
+         
+       <div>
+            <label for="">Nuress</label>
+    <select name="nuress_id" id="" class="form-select">
+        <option value="{{reports.nuress_id._id}}">{{reports.nuress_id.name}}</option>
+         {{#each nuress}}
+        <option value="{{_id}}">{{name}}</option>
+         {{/each}}
+    </select>
+        </div> 
+      <div>
+            <label for="">Hospital</label>
+    <select name="hospital_id" id="" class="form-select">
+        <option value="{{reports.hospital_id._id}}">{{reports.hospital_id.name}}</option>
+         {{#each hospital}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+        </div> 
+       <div>
+        <button class="btn btn-success" type="submit">Save</button>
+       </div>
+       </form>
+<br>
+            <a href="/specialist" class="btn btn-dark">Specialist</a>
+            <a href="/hospital" class="btn btn-dark">Hospital</a>
+            <a href="/doctors/create/report" class="btn btn-dark">Create Report</a>
+            <a href="/doctors" class="btn btn-dark"> Doctors</a>
+            <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+</body>
+</html>

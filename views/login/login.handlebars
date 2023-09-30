@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets/css/styles.css">
+    
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Responsive Login Form Sign In Sign Up</title>
+    </head>
+    <body>
+        <div class="login">
+            <div class="login__content">
+                <div class="login__img">
+                    <img src="image/img-login.svg" alt="">
+                </div>
+
+                <div class="login__forms">
+                    <form action="/login" method="post"  class="login__registre" >
+                        <h1 class="login__title">Sign In</h1>
+    
+                        <div class="login__box">
+                            <i class='bx bx-user login__icon'></i>
+                            <input type="text" placeholder="Email" id="email" name="email" class="login__input">
+                            
+                        </div>
+    
+                        <div class="login__box">
+                            <i class='bx bx-lock-alt login__icon'></i>
+                            <input type="password" placeholder="Password" id="password"  name="password" class="login__input">
+                            
+
+                        </div>
+
+                        <a href="#" class="login__forgot">Forgot password?</a>
+                     <button type="submit" class="login__button" style="width: 100%;" >Sign In</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<script>
+            /*===== LOGIN SHOW and HIDDEN =====*/
+const signUp = document.getElementById('sign-up'),
+    signIn = document.getElementById('sign-in'),
+    loginIn = document.getElementById('login-in'),
+    loginUp = document.getElementById('login-up')
+
+
+signUp.addEventListener('click', ()=>{
+    // Remove classes first if they exist
+    loginIn.classList.remove('block')
+    loginUp.classList.remove('none')
+
+    // Add classes
+    loginIn.classList.toggle('none')
+    loginUp.classList.toggle('block')
+})
+
+signIn.addEventListener('click', ()=>{
+    // Remove classes first if they exist
+    loginIn.classList.remove('none')
+    loginUp.classList.remove('block')
+
+    // Add classes
+    loginIn.classList.toggle('block')
+    loginUp.classList.toggle('none')
+})
+
+</script>
+    </body>
+</html>
