@@ -34,6 +34,7 @@ body{
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   color: var(--first-color-dark);
+  background-color: rgb(0, 0, 0);
 }
 
 h1{

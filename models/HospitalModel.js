@@ -5,6 +5,7 @@ const hospitalschema = new Schema(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     address: {
       type: String,

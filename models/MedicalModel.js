@@ -4,6 +4,7 @@ const medical = new Schema(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     hospital_id: {
       type: Schema.Types.ObjectId,
