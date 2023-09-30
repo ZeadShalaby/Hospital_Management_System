@@ -27,3 +27,9 @@ export const login = async (req, res) => {
 };
 
 export const forget = (req, res) => {};
+
+export const logout = (req, res) => {
+  res.cookie("token", "", { expires: new Date(1), path: "/" });
+  res.clearCookie("token", { path: "/" });
+  res.redirect("/");
+};

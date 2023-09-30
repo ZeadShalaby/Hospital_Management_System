@@ -17,6 +17,7 @@ const PatientModel = new Schema(
     phone: {
       type: String,
       required: true,
+      unique: true,
     },
     city: {
       type: String,
