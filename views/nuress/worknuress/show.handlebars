@@ -11,38 +11,58 @@
     <h1>Doctors Show Report</h1>
     {{#if status}}
     <div class="alert alert-success" role="alert">
-        {{specialists.name}} Update Successfully .
+        {{patient.name}} Update Successfully .
     </div>
     {{/if}}
     <ul>
         <li>
             Patient :
-            {{ report.patient_id.name }}
+            {{ patient.name }}
         </li>
         <br>
         <li>
-            Specialists :
-            {{ report.specialist_id.name }}
+            Age :
+            {{ patient.age }}
         </li>
         <br>
         <li>
-            hospital :
-            {{ report.hospital_id.name }}
+            Sex :
+            {{ patient.sex }}
         </li>
         <br>
         <li>
-            nuress :
-            {{ report.nuress_id.name }}
+            Height :
+            {{ patient.height }}
         </li>
         <br>
         <li>
-            doctor :
-            {{ report.doctor_id.name }}
+            Weight :
+            {{ patient.weight }}
         </li>
         <br>
         <li>
-            descriptionn :
-            {{ report.description }}
+            Phone :
+            {{ patient.phone }}
+        </li>
+        <br>
+        <br>
+        <li>
+            City :
+            {{ patient.city }}
+        </li>
+        <li>
+            Nuress :
+            {{ nuress.name }}
+        </li>
+        <br>
+        <li>
+            Doctor :
+            {{ doctor.name }}
+        </li>
+        <br>
+        <li>
+            Photo :
+            {{ patient.photo }}
         </li>
     </ul>
 

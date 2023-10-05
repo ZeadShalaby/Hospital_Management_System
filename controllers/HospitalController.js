@@ -17,6 +17,7 @@ export const create = async (req, res) => {
 
 export const store = async (req, res) => {
   const { name, address, photo } = req.body;
+  console.log(req.body);
   await hospital.create({
     name,
     address,

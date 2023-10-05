@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Doctors</title>
+</head>
+<body>
+    <h1>Doctors Create Report </h1>
+
+<form action="/workdoctors" method="post">
+
+    <div>
+            <label for="">Description</label>
+            <input type="text" class="form-control" name="description">
+        </div>
+
+        <div>
+            <label for="">Patient</label>
+            
+    <select name="patient_id" id="" class="form-select">
+        <option value="">Patient</option>
+         {{#each patient}}
+        
+        <option value="{{_id}}">{{name}}</option>
+        
+         {{/each}}
+    </select>
+        </div> 
+
+        <div>
+            <label for="">Specialist</label>
+    <select name="specialist_id" id="" class="form-select">
+        <option value="">Specialist</option>
+         {{#each specialits}}
+        <option value="{{_id}}">{{name}}</option>
+         {{/each}}
+    </select>
+        </div> 
+         
+       <div>
+            <label for="">Nuress</label>
+    <select name="nuress_id" id="" class="form-select">
+        <option value="">Nuress</option>
+         {{#each nuress}}
+        <option value="{{_id}}">{{name}}</option>
+         {{/each}}
+    </select>
+        </div> 
+      <div>
+            <label for="">Hospital</label>
+    <select name="hospital_id" id="" class="form-select">
+        <option value="">Hospital</option>
+         {{#each hospital}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+        </div> 
+       <div>
+        <button class="btn btn-success" type="submit">Save</button>
+       </div>
+       </form>
+<br>
+
+
+           <a href="/specialist" class="btn btn-dark">Specialist</a>
+           <a href="/hospital" class="btn btn-dark">Hospital</a>
+           <a href="/doctors" class="btn btn-dark"> Doctors</a>
+           <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+
+
+
+</body>
+</html>
+
+
+
+
+

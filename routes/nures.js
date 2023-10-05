@@ -1,14 +1,25 @@
 import { Router } from "express";
-import { index } from "../controllers/NuressController.js";
+import {
+  create,
+  destroy,
+  edit,
+  index,
+  search,
+  show,
+  store,
+  update,
+} from "../controllers/NuressController.js";
 
 const router = new Router();
 
 router.get("/", index);
-router.get("");
-router.get("");
-router.post("");
-router.delete("");
-router.get("");
-router.put("");
+router.get("/:_id", show);
+
+router.get("/create", create);
+router.post("/", store);
+router.delete("/:_id", destroy);
+router.get("/edit/:_id", edit);
+router.put("/:_id", update);
+router.post("/search", search);
 
 export default router;

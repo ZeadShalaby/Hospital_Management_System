@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Doctors</title>
+</head>
+
+<body>
+    <h1>Users</h1>
+    <form action="/users/{{users._id}}?_method=PUT" method="POST">
+        <div>
+            <label for="">Name</label>
+            <input type="text" class="form-control" name="name" value="{{users.name}}">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" class="form-control" name="email" value="{{users.email}}">
+        </div>
+        <div>
+            <label for="">password</label>
+            <input type="password" class="form-control" name="password" value="{{users.password}}">
+        </div>
+
+        <div>
+            <label for="">Photo</label>
+            <input type="file" class="form-control" name="photo" value="{{users.photo}}">
+        </div>
+
+        <div>
+            <button class="btn btn-success" type="submit">Save</button>
+        </div>
+
+    </form>
+    <br>
+    <a href="/specialist" class="btn btn-dark">Specialist</a>
+    <a href="/hospital" class="btn btn-dark">Hospital</a>
+    <a href="/doctors/create" class="btn btn-dark">Create Doctors</a>
+    <a href="/doctors" class="btn btn-dark"> Doctors</a>
+    <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+
+</body>
+
+</html>

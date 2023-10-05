@@ -5,6 +5,7 @@ const nuress = new Schema(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     specialist_id: {
       type: Schema.Types.ObjectId,

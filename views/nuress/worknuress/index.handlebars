@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Doctors</title>
+  <title>All Patient</title>
 </head>
 
 <body>
-  <h1>Doctors Show All Report</h1>
+  <h1>All Patient </h1>
   {{#if msg}}
   <div class="alert alert-success" role="alert">
     {{msg}}
@@ -48,7 +48,7 @@
         </li>
       </ul>
 
-      <form action="/workdoctors/search/report" class="form-inline my-2 my-lg-0" method="post">
+      <form action="/worknuress/search" class="form-inline my-2 my-lg-0" method="post">
         <input type='text' name='search' id='q' placeholder='Enter a keyword...' required autocomplete='off'>
         <input type='submit' value='Search' id='submit'>
       </form>
@@ -58,27 +58,27 @@
 
 
   <ul>
-    {{#each report}}
+    {{#each patient}}
     <li>
 
 
       <a href='/workdoctors/{{_id}}'>
-        {{ patient_id.name }}
+        {{ patient.name }}
         -
-        {{specialist_id.name}}
+        {{nuress.name}}
+        -
+        {{doctor.name}}
 
       </a>
-      <div>
-        <a href="/workdoctors/editreport/{{_id}}" class="btn btn-success" style="margin-left: 400px;">Edit</a>
-      </div>
+
     </li>
     {{/each}}
   </ul>
-  <a href="/specialist" class="btn btn-dark"> Specialist</a>
-  <a href="/hospital" class="btn btn-dark">Hospital</a>
-  <a href="/doctors" class="btn btn-dark">Doctors</a>
-  <a href="/workdoctors/create/report" class="btn btn-dark">Create Report</a>
+  <a href="/worknuress" class="btn btn-dark"> WorkNuress</a>
+  <a href="/worknuress/create" class="btn btn-dark">Create Patient</a>
   <a href="/home/homepage" class="btn btn-dark">Home</a>
+  <a href="/setting" class="btn btn-dark">Setting</a>
+
 
 </body>
 

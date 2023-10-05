@@ -1,26 +1,17 @@
 import { Schema, model } from "mongoose";
-
-const users = new Schema(
+import { Model } from "mongoose";
+const service = Schema(
   {
     name: {
       type: String,
       required: true,
-      unique: true,
     },
-    email: {
+    phone: {
       type: String,
       required: true,
       unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
     },
     photo: {
-      type: String,
-      required: true,
-    },
-    role: {
       type: String,
       required: true,
     },
@@ -28,4 +19,4 @@ const users = new Schema(
   { timestamps: true }
 );
 
-export default model("users", users);
+export default model("service", service);
