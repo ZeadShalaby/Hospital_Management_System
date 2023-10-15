@@ -11,10 +11,6 @@ const medical = new Schema(
       required: true,
       ref: "hospital",
     },
-    doctor_id: {
-      type: Schema.Types.ObjectId,
-      required: true,
-    },
     disease: {
       type: String,
       required: true,

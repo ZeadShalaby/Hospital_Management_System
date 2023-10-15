@@ -8,9 +8,12 @@ import NuresModel from "../models/NuresModel.js";
 import { ADMIN, DOCTOR, NURESS, PATIENT } from "../models/RoleModel.js";
 import bcrypt from "bcryptjs";
 
-// !  function doctor
+// !  function doctor todo admin
 export const index = async (req, res) => {
-  const doctor = await DoctorModel.find().populate("specialist_id").lean();
+  const doctor = await DoctorModel.find()
+    .sort({ $natural: -1 })
+    .populate("specialist_id")
+    .lean();
   return res.render("doctors/index", { doctor });
 };
 
@@ -42,16 +45,19 @@ export const store = async (req, res) => {
     photo,
   });
   const salt = bcrypt.genSaltSync(10);
-  const hash = bcrypt.hashSync(name + phone, salt);
+  const hash = bcrypt.hashSync(name, salt);
 
   await UsersModel.create({
     name,
-    email: name + "@" + hospital.name + ".com",
+    email: name + "@" + "doctor" + ".com",
     password: hash,
-    photo: photo,
+    photo,
     role: DOCTOR,
   });
-  const doctor = await DoctorModel.find().populate("specialist_id").lean();
+  const doctor = await DoctorModel.find()
+    .sort({ $natural: -1 })
+    .populate("specialist_id")
+    .lean();
   return res.render("doctors/index", { doctor });
 };
 
@@ -84,11 +90,11 @@ export const update = async (req, res) => {
       photo: path,
     },
   });
-  const singlereport = await DoctorModel.findById(req.params)
+  const singledoctor = await DoctorModel.findById(req.params)
     .populate("specialist_id")
     .populate("hospital_id")
     .lean();
-  res.render("doctors/show", { doctor: singlereport, status: true });
+  res.render("doctors/show", { doctor: singledoctor, status: true });
 };
 
 export const destroy = async (req, res) => {
@@ -108,7 +114,7 @@ export const destroy = async (req, res) => {
   res.render("doctors/index", { doctor, msged });
 };
 
-// ! Work doctors function //
+// ! Work doctors function todo doctors //
 
 export const indexreport = async (req, res) => {
   const report = await ReportModel.find({
@@ -136,7 +142,7 @@ export const showreport = async (req, res) => {
 };
 
 export const createreport = async (req, res) => {
-  const id = "65146ac8362aa87bb1478444";
+  const id = req.user._id;
   const specialits = await SpecialistModel.find()
     .populate("hospital_id")
     .lean();

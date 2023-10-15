@@ -1,80 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Doctors</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Doctors</title>
 </head>
+
 <body>
-    <h1>Doctors Show All Report</h1>
-{{#if msg}}
- <div class="alert alert-success" role="alert">
-  {{msg}}
-</div> 
-{{/if}} 
+  <h1>Doctors Show All Report</h1>
+  {{#if msg}}
+  <div class="alert alert-success" role="alert">
+    {{msg}}
+  </div>
+  {{/if}}
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-   
-    <form action="/workdoctors/search/report" class="form-inline my-2 my-lg-0" method="post">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+
+      <form action="/workdoctors/search/report" class="form-inline my-2 my-lg-0" method="post">
         <input type='text' name='search' id='q' placeholder='Enter a keyword...' required autocomplete='off'>
         <input type='submit' value='Search' id='submit'>
-</form>
-  </div>
-</nav>
+      </form>
+    </div>
+  </nav>
 
 
 
-    <ul>
-        {{#each report}}
+  <ul>
+    {{#each report}}
     <li>
-        
 
-    <a href='/workdoctors/{{_id}}'>
-     {{ patient_id.name }}
-     -
-     {{specialist_id.name}}
-     
+
+      <a href='/workdoctors/{{_id}}'>
+        {{ patient_id.name }}
+        -
+        {{specialist_id.name}}
+
       </a>
-       <div>
-        <a href="/workdoctors/editreport/{{_id}}" class="btn btn-success" style="margin-left: 400px;" >Edit</a>
-          </div>
-      </li>
-      {{/each}}
-      </ul>
-            <a href="/specialist" class="btn btn-dark">  Specialist</a>
-            <a href="/hospital" class="btn btn-dark">Hospital</a>
-            <a href="/doctors" class="btn btn-dark">Doctors</a>
-            <a href="/workdoctors/create/report" class="btn btn-dark">Create Report</a>
-
+      <div>
+        <a href="/workdoctors/editreport/{{_id}}" class="btn btn-success" style="margin-left: 400px;">Edit</a>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+  <a href="/specialist" class="btn btn-dark"> Specialist</a>
+  <a href="/hospital" class="btn btn-dark">Hospital</a>
+  <a href="/doctors" class="btn btn-dark">Doctors</a>
+  <a href="/workdoctors/create/report" class="btn btn-dark">Create Report</a>
+  <a href="/home/homepage" class="btn btn-dark">Home</a>
 
 </body>
+
 </html>

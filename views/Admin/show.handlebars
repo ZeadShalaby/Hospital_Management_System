@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Doctor</title>
+</head>
+
+<body>
+    <h1>Doctors</h1>
+    {{#if status}}
+    <div class="alert alert-success" role="alert">
+        {{users.name}} Update Successfully .
+    </div>
+    {{/if}}
+
+    <ul>
+        <li>
+            Name :
+            {{ users.name }}
+        </li>
+        <br>
+        <li>
+            Email :
+            {{ users.email }}
+        </li>
+        <br>
+        <li>
+            Password:
+            {{ users.password }}
+        </li>
+        <br>
+        <li>
+            Role :
+
+            {{roles}}
+        </li>
+        <br>
+        <li>
+            Photo :
+            {{ users.photo }}
+        </li>
+    </ul>
+
+    <a href="/specialist" class="btn btn-dark">Specialist</a>
+    <a href="/doctors" class="btn btn-dark">Doctors</a>
+    <a href="/hospital" class="btn btn-dark">Hospital</a>
+    <a href="/users" class="btn btn-dark">Users</a>
+    <a href="/workdoctors" class="btn btn-dark">Work Doctors</a>
+
+</body>
+
+</html>

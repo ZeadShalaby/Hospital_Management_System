@@ -1,13 +1,9 @@
 import { Router } from "express";
+import { patientindex, patientshow } from "../controllers/NuressController.js";
 
 const router = new Router();
 
-router.get("");
-router.get("");
-router.get("");
-router.post("");
-router.delete("");
-router.get("");
-router.put("");
+router.get("/", patientindex);
+router.get("/show/:_id", patientshow);
 
 export default router;

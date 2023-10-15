@@ -14,12 +14,13 @@ export const login = async (req, res) => {
     if (incorrectpass == true) {
       const data = {
         _id: loginuser._id,
+        name: loginuser.name,
         email: loginuser.email,
         role: loginuser.role,
       };
       const jwtToken = jwt.sign(data, process.env.JWT_SECRECT);
       res.cookie("token", jwtToken);
-      res.redirect("/users/homepage");
+      res.redirect("/home/homepage");
     } else {
       return res.redirect("/");
     }
