@@ -10,6 +10,7 @@ import {
   NURESS,
   PATIENT,
 } from "../models/RoleModel.js";
+import RoomModel from "../models/RoomModel.js";
 
 export const index = async (req, res) => {
   const service = await ServiceModel.find().sort({ $natural: -1 }).lean();
@@ -156,6 +157,13 @@ export const patientstore = async (req, res) => {
     photo,
     role: PATIENT,
   });
+  const patient_id = await PatientModel.find({ name: name });
+  const numroom = await RoomModel.find().sort({ $natural: -1 }).lean();
+  console.log(patient_id, numroom);
+  await RoomModel.create({
+    patient_id: patient_id._id,
+    numroom: numroom.numroom + 1,
+  });
   const patient = await PatientModel.find().sort({ $natural: -1 }).lean();
   return res.render("service/index", { service: patient });
 };
@@ -210,13 +218,15 @@ export const patientupdate = async (req, res) => {
 export const patientcheckout = async (req, res) => {
   const id = req.params;
   const patient = await PatientModel.findById(id).lean();
+  const roompatient = await RoomModel.find({ patient_id: id });
   const msged = patient.name + " : Delete Successfully ,";
   const patients = await PatientModel.findByIdAndDelete(id);
   const users = await UsersModel.find()
     .where("name")
     .equals(patient.name)
     .lean();
-  const userpatient = await UsersModel.findByIdAndDelete(users);
+  const userpatient = await UsersModel.findByIdAndDelete(users._id);
+  const patientroom = await RoomModel.findByIdAndDelete(roompatient._id);
   const patientes = await PatientModel.find().sort({ $natural: -1 }).lean();
   res.render("nuress/worknuress/index", { service: patient });
 };

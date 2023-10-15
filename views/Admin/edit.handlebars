@@ -8,6 +8,12 @@
 </head>
 
 <body>
+    {{#if msg}}
+    <div class="alert alert-danger" role="alert">
+        Sir : {{users.name}} : {{msg}} .
+    </div>
+    {{/if}}
+
     <h1>Users</h1>
     <form action="/users/{{users._id}}?_method=PUT" method="POST">
         <div>

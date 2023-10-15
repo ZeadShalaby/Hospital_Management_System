@@ -129,9 +129,9 @@ export const search = async (req, res) => {
 // ?
 
 export const patientindex = async (req, res) => {
-  const patient = await PatientModel.find()
-    .where("nuress_id")
-    .equals(req.user._id)
+  const patient = await PatientModel.find({ nuress_id: req.user._id })
+    /**.where("nuress_id")
+    .equals(req.user._id) */
     .populate("nuress_id")
     .populate("doctor_id")
     .sort({ $natural: -1 })

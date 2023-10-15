@@ -52,6 +52,8 @@ import servicerouter from "./routes/service.js";
 
 import workservicerouter from "./routes/workservice.js";
 
+import room from "./routes/room.js";
+
 //! ///////////////////////////////////////////////////////
 const app = express();
 
@@ -81,7 +83,7 @@ app.use("/medical", authentication, authDoctor, medicalrouter);
 app.use("/setting", authentication, settingrouter);
 app.use("/service", authentication, authAdmin, servicerouter);
 app.use("workservice", authentication, authService, workservicerouter);
-
+app.use("/room", authentication, authService, room);
 // todo run project in this port //
 app.listen(process.env.port, () => {
   console.log(

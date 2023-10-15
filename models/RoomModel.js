@@ -7,6 +7,11 @@ const room = new Schema(
       required: true,
       ref: "patient",
     },
+    numroom: {
+      type: String,
+      required: true,
+      unique: true,
+    },
   },
   { timestamps: true }
 );
